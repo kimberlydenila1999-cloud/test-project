@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export const dbConnect = async () => {
+export const dbConnection = async () => {
     try{
 
         await mongoose.connect(process.env.DB_ACCESS);
@@ -19,7 +19,7 @@ export const dbConnect = async () => {
         console.error("Error while connecting to database!"+error.message);
     });
 
-    mongose.connection.on("disconnected",()=>{
+    mongoose.connection.on("disconnected",()=>{
         console.error("MongoDB disconnected!");
     });
 }
